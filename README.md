@@ -2,9 +2,9 @@
 
 ## Overview
 
-This project focuses on the analysis of pre-operative imaging modalities — including 4D CT, SPECT/CT, Ultrasound, Sestamibi, and MRI — and compares them to surgical findings in order to assess localization accuracy and clinical value. The goal is to evaluate how well different imaging techniques align with surgical outcomes, and identify patterns in anatomical measurements that may influence side concordance.
+This project focuses on the analysis of pre-operative imaging modalities, including 4D CT, SPECT/CT, Ultrasound, Sestamibi, and MRI, and compares them to surgical findings in order to assess localization accuracy and clinical value. The goal is to evaluate how well different imaging techniques align with surgical outcomes, and identify patterns in anatomical measurements that may influence side concordance.
 
-The dataset used in this project was structured and cleaned from raw imaging data and includes metrics related to anatomical positioning, laterality (left/right), and concordance with actual surgical results.
+This project used a dataset that was organized and cleaned from raw imaging data. It has metrics for anatomical positioning, laterality (left/right), and matching real surgical results.
 
 <br><br>
 
