@@ -7,6 +7,12 @@ This project focuses on the analysis of pre-operative imaging modalities — inc
 The dataset used in this project was structured and cleaned from raw imaging data and includes metrics related to anatomical positioning, laterality (left/right), and concordance with actual surgical results.
 
 
+
+
+
+
+
+
 ## Week 4 – Data Source Reflection
 
 ### Where are we getting this data from?
