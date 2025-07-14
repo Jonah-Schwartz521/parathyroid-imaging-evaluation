@@ -58,7 +58,7 @@ We decided to drop the rows where the age was missing, since age is important fo
 
 ### What was selected or deleted?
 
-- Dropped 2 rows where `Age` was null  
+- Identified 2 rows where `Age` was null  
 - Removed whitespace from column headers  
 - Did not delete any imaging modality columns — even though they had missing data, we kept them to show which tests were or weren’t performed
 
@@ -67,9 +67,9 @@ We decided to drop the rows where the age was missing, since age is important fo
 We cleaned the dataset so that:
 - All column names are properly formatted
 - Key fields like `Age` don’t have nulls that could cause issues
-- We preserve important context in the data (like scan usage patterns)
+- We kept important context in the data
 
-After cleaning, we saved the dataset as `cleaned_data.csv` for use in our visualizations and analysis later.
+After cleaning, we saved the dataset as `cleaned_data.csv`.
 
 <br><br>
 ## Daily Progress Log #1 – Data Preparation
