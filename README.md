@@ -47,7 +47,7 @@ Some challenges of working with `.xlsx` files include:
 
 <br><br>
 
-## Daily Progress Log – Data Preparation
+## Daily Progress Log #1 – Data Preparation
 
 ### What We worked on today:
 - Loaded the raw imaging dataset into a pandas DataFrame
