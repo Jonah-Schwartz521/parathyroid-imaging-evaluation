@@ -9,6 +9,7 @@ This project used a dataset that was organized and cleaned from raw imaging data
 <br><br>
 
 ## Data Source Reflection
+---
 
 ### Data Pulling
 ### Where are we getting this data from?
@@ -49,6 +50,7 @@ Some challenges of working with `.xlsx` files include:
 <br><br>
 
 ### Data Cleaning
+---
 ### What choices did we make?
 
 We started by cleaning up the column names in the dataset, specifically fixing a space issue in the `'Age '` column. Then, we checked for missing values across all columns and found that a few rows were missing age data, while many others were missing values for certain imaging modalities (like MRI or Ultrasound).
