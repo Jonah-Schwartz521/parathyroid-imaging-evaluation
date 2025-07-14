@@ -10,6 +10,8 @@ This project used a dataset that was organized and cleaned from raw imaging data
 
 ## Data Source Reflection
 
+## Data Pulling
+<br><br>
 ### Where are we getting this data from?
 
 For our final project, we are using a dataset created as part of an ENT (ear, nose, throat) imaging analysis project. The data was originally collected and cleaned by our group using raw measurements and imaging results. This dataset focuses on measurements and comparison values from head CT scans, including variables related to side concordance, imaging angles, and anatomical distances between specific points in the head.
@@ -45,6 +47,9 @@ Some challenges of working with `.xlsx` files include:
 - This dataset isn't open to the public or housed on a data portal like Kaggle or the CDC, so outside users can't directly replicate the process of collecting it.
 - Some insights may need domain knowledge to be interpreted properly because they involve medical imaging data.
 
+<br><br>
+
+## Data Cleaning
 <br><br>
 
 ## Daily Progress Log #1 – Data Preparation
