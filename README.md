@@ -9,7 +9,6 @@ This project used a dataset that was organized and cleaned from raw imaging data
 <br><br>
 
 ## Data Source Reflection
----
 
 ### Data Pulling
 ### Where are we getting this data from?
