@@ -44,3 +44,17 @@ Some challenges of working with `.xlsx` files include:
 **Cons**:
 - This dataset isn't open to the public or housed on a data portal like Kaggle or the CDC, so outside users can't directly replicate the process of collecting it.
 - Some insights may need domain knowledge to be interpreted properly because they involve medical imaging data.
+
+<br><br>
+
+## Daily Progress Log – Data Preparation
+
+### What We worked on today:
+- Loaded the raw imaging dataset into a pandas DataFrame
+- Inspected the column names and fixed an issue with whitespace in the `'Age '` column
+- Identified rows and found age data was missing
+- Checked for other missing values across imaging modality columns
+- Cleaned up the dataset and saved a cleaned version
+
+### Notes:
+- Will move on to making visualizations and doing analysis in a new notebook to keep this one focused on just pulling and cleaning
