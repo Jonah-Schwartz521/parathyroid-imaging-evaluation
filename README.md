@@ -55,6 +55,7 @@ Some challenges of working with `.xlsx` files include:
 We started by cleaning up the column names in the dataset, specifically fixing a space issue in the `'Age '` column. Then, we checked for missing values across all columns and found that a few rows were missing age data, while many others were missing values for certain imaging modalities (like MRI or Ultrasound).
 
 We decided to drop the rows where the age was missing, since age is important for any future analysis. For the imaging modality columns, we left the missing values in place because not all patients received every type of scan — so the missing data actually means those scans weren’t done, which is still useful to keep.
+
 ---
 ### What was selected or deleted?
 
