@@ -11,7 +11,6 @@ This project used a dataset that was organized and cleaned from raw imaging data
 ## Data Source Reflection
 
 ## Data Pulling
-<br><br>
 ### Where are we getting this data from?
 
 For our final project, we are using a dataset created as part of an ENT (ear, nose, throat) imaging analysis project. The data was originally collected and cleaned by our group using raw measurements and imaging results. This dataset focuses on measurements and comparison values from head CT scans, including variables related to side concordance, imaging angles, and anatomical distances between specific points in the head.
