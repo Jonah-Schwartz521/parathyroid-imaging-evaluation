@@ -8,7 +8,7 @@ This project used a dataset that was organized and cleaned from raw imaging data
 
 <br><br>
 
-## Week 4 – Data Source Reflection
+## Data Source Reflection
 
 ### Where are we getting this data from?
 
