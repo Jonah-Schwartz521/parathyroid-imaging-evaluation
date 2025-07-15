@@ -73,7 +73,7 @@ We cleaned the dataset so that:
 - Key fields like `Age` don’t have nulls that could cause issues
 - We kept important context in the data
 
-After cleaning, we saved the dataset as `cleaned_data.csv`.
+After cleaning, we saved the dataset as `cleaned_data.xlsx`.
 
 <br><br>
 # Daily Progress Logs
