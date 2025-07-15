@@ -28,6 +28,7 @@ The dataset is in Excel (.xlsx) format and contains organized tables with number
 ### What are the restrictions of our data type?
 
 Some challenges of working with `.xlsx` files include:
+
 - Needing to **manually inspect and understand multiple sheets** to piece together the complete picture
 - Making sure data types are consistent across sheets (e.g., ensuring numeric values weren’t stored as strings)
 - **Handling missing or inconsistent values**, especially in the raw imaging sheet
@@ -38,11 +39,13 @@ Some challenges of working with `.xlsx` files include:
 ### Pros and cons in terms of accessibility
 
 **Pros**:
+
 - We have full access and permission to use the data, since it was developed within our group.
 - The dataset is pretty clean and well organized, which makes it simple to use Python to examine.
 - We know exactly what each variable means and how it was found because it was collected and cleaned by hand.
 
 **Cons**:
+
 - This dataset isn't open to the public or housed on a data portal like Kaggle or the CDC, so outside users can't directly replicate the process of collecting it.
 - Some insights may need domain knowledge to be interpreted properly because they involve medical imaging data.
 
@@ -77,6 +80,7 @@ After cleaning, we saved the dataset as `cleaned_data.csv`.
 ## Daily Progress Log #1 – Data Preparation
 
 ### What We worked on today:
+
 - Loaded the raw imaging dataset into a pandas DataFrame
 - Inspected the column names and fixed an issue with whitespace in the `'Age '` column
 - Identified rows and found age data was missing
@@ -84,4 +88,11 @@ After cleaning, we saved the dataset as `cleaned_data.csv`.
 - Cleaned up the dataset and saved a cleaned version
 
 ### Notes:
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5fe6a9a9704155aecd01bd8af823c6646e06601e
+>>>>>>> Stashed changes
 - Will move on to making visualizations and doing analysis in a new notebook to keep this one focused on just pulling and cleaning
