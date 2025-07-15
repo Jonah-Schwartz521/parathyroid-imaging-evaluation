@@ -88,11 +88,4 @@ After cleaning, we saved the dataset as `cleaned_data.xlsx`.
 - Cleaned up the dataset and saved a cleaned version
 
 ### Notes:
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 5fe6a9a9704155aecd01bd8af823c6646e06601e
->>>>>>> Stashed changes
 - Will move on to making visualizations and doing analysis in a new notebook to keep this one focused on just pulling and cleaning
