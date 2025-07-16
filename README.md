@@ -89,3 +89,23 @@ After cleaning, we saved the dataset as `cleaned_data.xlsx`.
 
 ### Notes:
 - Will move on to making visualizations and doing analysis in a new notebook to keep this one focused on just pulling and cleaning
+---
+
+## Daily Progress Log #2
+
+### What We Worked On Today:
+
+- Reviewed our cleaned imaging dataset (`Clean_imaging_data.xlsx`) and realized it only showed what each scan found, but **not** how that matched up with actual surgical results.
+- Discussed that to do analysis like PPV (Positive Predictive Value) and Sensitivity, we need to know **if** each modality (e.g. 4D CT, SPECT, Sestamibi, etc.) correctly matched the surgical findings.
+- Decided that we needed to **create new columns** that compare each modality's result to the surgical outcome, like whether it was an **exact match**, **side match**, or **incorrect**.
+- Switched focus from just using the cleaned raw data to building a **Modality Concordance** file that adds those comparisons.
+- Created a new file `modality_concordance.ipynb` where we generate the match columns for each modality.
+- Commented out the save command in `DataPreparation.ipynb`:
+  ```python
+  # df.to_excel("Data/Clean_imaging_data.xlsx", index=False)
+
+- Instead, we planned to save the final version (with modality comparisons) after building it in the modality concordance notebook.
+
+### Notes:
+- We stopped saving the cleaned version right away because it didn’t include the columns that compare scan results to surgery.
+- All the analysis (like PPV and Sensitivity) now needs the updated data that shows whether each scan matched what was found in surgery.
