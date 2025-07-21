@@ -170,3 +170,21 @@ This project helped us practice data storytelling from start to finish finding a
 ### Notes:
 - We stopped saving the cleaned version right away because it didn’t include the columns that compare scan results to surgery.
 - All the analysis (like PPV and Sensitivity) now needs the updated data that shows whether each scan matched what was found in surgery.
+- 
+
+---
+## Daily Progress Log #3
+
+### What We Worked On Today:
+
+- We finished building our presentation for the parathyroid imaging study.
+- Focused on making sure each slide tells part of the story clearly — including key metrics like PPV, Sensitivity, and Concordance.
+- Added a summary slide at the end to wrap everything up and highlight the big takeaways.
+- Made sure the visualizations were easy to follow and connected to what we found in the data.
+- Finalized the presentation layout and got it ready to submit.
+
+### Notes:
+- We wanted the presentation to explain our findings in a way that makes sense to people who might not have a medical background.
+- Each slide walks through a different part of the analysis to help answer our main question about which scan is most reliable before surgery.
+
+
