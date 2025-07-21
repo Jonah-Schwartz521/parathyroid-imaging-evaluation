@@ -8,7 +8,7 @@ This project used a dataset that was organized and cleaned from raw imaging data
 
 <br><br>
 
-# Data Source Reflection
+# Data Source Reflection - Week 4
 
 ## Data Pulling
 ### Where are we getting this data from?
@@ -74,6 +74,67 @@ We cleaned the dataset so that:
 - We kept important context in the data
 
 After cleaning, we saved the dataset as `cleaned_data.xlsx`.
+
+
+<br><br>
+# Visualizations Reflection – Week 6
+## Our Visualizations
+
+### 
+
+
+
+---
+### 
+
+
+
+<br><br>
+# Presentation Reflection – Week 7
+## Our Presentation
+
+### We're Done!
+
+We’ve officially wrapped up our presentation on parathyroid imaging after several weeks of research, data cleaning, analysis, and design. The goal was to explore how well different medical scans (like SPECT/CT, 4D CT, Sestamibi, Ultrasound, and MRI) help doctors detect parathyroid issues before surgery.
+
+---
+### What We Did
+
+Our story was built around a simple but important question:
+
+> “Which imaging scan gives the most accurate and useful information for parathyroid surgery?”
+
+To answer that, we:
+- Pulled real hospital imaging data spanning over 13 years
+- Cleaned and organized it for analysis
+- Evaluated each imaging type based on five key things:
+  - **PPV** (how often the scan is right when it says there's a problem)
+  - **Sensitivity** (how well it detects problems when they exist)
+  - **Concordance** (how well the scan matched what surgeons found)
+  - **Localization** (whether it found the problem at all)
+  - **Success rate** (overall usefulness of each scan)
+
+We created clear visuals to help tell the story, showing where each scan type performed well and where it didn’t.
+
+---
+
+### What We Learned
+
+No scan is perfect. Some scans (like Sestamibi) are super reliable when they say something’s there, but they miss a lot of cases. Others (like SPECT/CT) catch more cases but sometimes make mistakes. The best strategy? Combine scans. That gives doctors the best chance of success in surgery.
+
+---
+
+### Why This Matters
+
+Our visual storytelling helps doctors, patients, and even data scientists understand the strengths and weaknesses of these scans. In the real world, this kind of insight can lead to better healthcare decisions and better outcomes for patients.
+
+---
+
+### Final Thoughts
+
+This project helped us practice data storytelling from start to finish finding a story in the data, building the visualizations, and wrapping it all together into a meaningful presentation. We're proud of how it turned out.
+
+
 
 <br><br>
 # Daily Progress Logs
