@@ -2,82 +2,142 @@
 <br><br>
 # Overview
 
-This project focuses on the analysis of pre-operative imaging modalities, including 4D CT, SPECT/CT, Ultrasound, Sestamibi, and MRI, and compares them to surgical findings in order to assess localization accuracy and clinical value. The goal is to evaluate how well different imaging techniques align with surgical outcomes, and identify patterns in anatomical measurements that may influence side concordance.
+This project looks at different types of medical scans, like 4D CT, SPECT/CT, Ultrasound, Sestamibi, and MRI, to see how well they help doctors find the exact location of a parathyroid gland problem before surgery.
 
-This project used a dataset that was organized and cleaned from raw imaging data. It has metrics for anatomical positioning, laterality (left/right), and matching real surgical results.
+We compared what each scan showed to what surgeons actually found during the operation. Our goal was to figure out which scans are the most reliable and useful for planning surgery.
+
+The data we used came from real patients. We cleaned and organized it so we could measure things like where the problem was (left or right side) and how closely each scan matched the real surgical result.
 
 <br><br>
 
-# Data Source Reflection - Week 4
+# Notes on Data Source
 
-## Data Pulling
 ### Where are we getting this data from?
 
-For our final project, we are using a dataset created as part of an ENT (ear, nose, throat) imaging analysis project. The data was originally collected and cleaned by our group using raw measurements and imaging results. This dataset focuses on measurements and comparison values from head CT scans, including variables related to side concordance, imaging angles, and anatomical distances between specific points in the head.
-
-The data was accessed and processed through Jonah's Github, where it was organized across multiple `.xlsx` files. These files include both raw imaging data and cleaned versions with derived metrics and categorizations.
+Our dataset came from a real hospital database. Jonah's parents is a throat surgeon, and through their work, we were able to access anonymized patient imaging records that had been collected over a 13 year period. These records included information from several common imaging modalities used in parathyroid diagnosis, like SPECT/CT, 4D CT, Ultrasound, and Sestamibi.
 
 ---
 
 ### What data type is it?
 
-The dataset is in Excel (.xlsx) format and contains organized tables with numbers and categories. Each sheet includes columns like patient ID, anatomical measurements, side classification (left/right), and concordance labels, all suitable for statistical analysis and visualization using Python (mainly pandas and matplotlib).
+**Data**
+Our data is in a table with each row being one patient procedure and each column showing different types of information of that patient. We have 405 total patient records from 2012 to 2025.
+
+**Types of Information:**
+- **Patient basics:** ID numbers, age, gender, procedure dates
+- **Raw imaging results:** What each scan type reported finding (SPECT/CT, Ultrasound, 4D CT, Sestamibi, MRI)
+- **Surgery outcomes:** What surgeons actually discovered during the operation and whether patients were cured
+
+**Data Categories:**
+- **Text data:** Scan results like "Left Superior", "Right Inferior", "Non localizing"
+- **Numerical data:** Patient ages, ID numbers, dates
+- **Missing values:** Lots of empty cells where certain scans were not performed on specific patients
+
+**Data Challenges:**
+At this point, the data shows what each scan found and what surgery found, but there is no way to compare them or know which scans were actually helpful. The imaging results are just raw reports without any analysis of how accurate it is or how useful it is for surgical planning.
 
 ---
 
 ### What are the restrictions of our data type?
 
-Some challenges of working with `.xlsx` files include:
-
-- Needing to **manually inspect and understand multiple sheets** to piece together the complete picture
-- Making sure data types are consistent across sheets (e.g., ensuring numeric values weren’t stored as strings)
-- **Handling missing or inconsistent values**, especially in the raw imaging sheet
-- Having to manually track derived columns that were added post-collection, since metadata or documentation is limited
+- **Missing Scans:** Not every patient got all the scan types, so it’s hard to compare them directly.
+- **Small Sample Sizes:** Some scans, like MRI, were rarely used, which makes it harder to trust the results.
+- **Ethical Considerations:** Since this is real hospital data, we had to be careful with patient privacy. No names or personal info were used.
+- **Bias Risk:** The data comes from one hospital and one surgeon, so the results might not apply to every situation or location.
 
 ---
 
 ### Pros and cons in terms of accessibility
 
-**Pros**:
+**Pros:**  
+- The data was already organized by scan type and surgery result
+- It came from real cases, so it reflects real clinical situations
 
-- We have full access and permission to use the data, since it was developed within our group.
-- The dataset is pretty clean and well organized, which makes it simple to use Python to examine.
-- We know exactly what each variable means and how it was found because it was collected and cleaned by hand.
-
-**Cons**:
-
-- This dataset isn't open to the public or housed on a data portal like Kaggle or the CDC, so outside users can't directly replicate the process of collecting it.
-- Some insights may need domain knowledge to be interpreted properly because they involve medical imaging data.
+**Cons:**  
+- The data wasn’t public, so we needed special permission to use it
+- Some parts had missing or limited information, like very few MRI scans
 
 <br><br>
 
-## Data Cleaning
+# Walk Through of Data Pulling
+### How did you get it?
+
+We pulled the data from the hospital’s database with permission. Each scan result was matched to surgical findings and entered it into Excel to create a dataset. Throughout the whole thing, we were careful to avoid collecting any personal patient details and focused only on information we needed for the analysis.
+
+**Loading It**
+- Used Python's pandas library with `pd.read_excel('Data/raw_imaging_data.xlsx')`
+- Put it into a 'Data' folder
+- Loaded into a pandas DataFrame
+
+**Looking at the Data**
+- Ran `df.head()` to see the first few rows and understand the structure
+- Used `df.info()` to check data types and see how much missing data we had
+- Applied `df.describe()` to get basic statistics on numerical columns
+
+<br><br>
+
+# Walk Through of Data Cleaning
 ---
 ### What choices did we make?
 
-We started by cleaning up the column names in the dataset, specifically fixing a space issue in the `'Age '` column. Then, we checked for missing values across all columns and found that a few rows were missing age data, while many others were missing values for certain imaging modalities (like MRI or Ultrasound).
+**1. Column Name Issues**
+- We found that the 'Age' column actually had a space at the end ('Age '), which was causing errors
+- We just decided to strip all whitespace from all the column names to prevent future problems just in case it was just like Age
 
-We decided to drop the rows where the age was missing, since age is important for any future analysis. For the imaging modality columns, we left the missing values in place because not all patients received every type of scan — so the missing data actually means those scans weren’t done, which is still useful to keep.
+**2. Missing Data Strategy**
+- We discovered lots of missing values in the imaging columns (like 175 missing SPECT/CT scans, 390 missing MRI scans)
+- We had to decide whether to delete rows with missing data or keep them
+
+**3. Data Enhancement Needs**
+- The raw data only showed what each scan found, but didn't tell us if those findings were actually correct
+- We realized we needed to compare scan results to surgical outcomes to make the data useful for analysis
 
 ---
 ### What was selected or deleted?
 
-- Identified 2 rows where `Age` was null  
-- Removed whitespace from column headers  
-- Did not delete any imaging modality columns — even though they had missing data, we kept them to show which tests were or weren’t performed
+**What we kept:**
+- All 405 patient records (no patients were removed)
+- All imaging modality columns, even with missing data
+- All core patient information (age, gender, surgical findings, etc.)
+
+**What we deleted/excluded:**
+- Whitespace from column headers
+- We didn't actually delete any data, but we did exclude some certain values from our analysis:
+  - "Non-localizing" scans when calculating success rates
+  - Missing data (NaN) when doing statistical calculations
+  - MRI from some analyses because it only had 15 total scans
+
+**What we added:**
+- 5 new "Calculated Concordance" columns comparing each scan type to surgery results
+- 1 "Surgical Side" column with left/right information
+- 1 "Success" column indicating if the patient was cured with helpful imaging
+
 ---
 ### Why?
 
-We cleaned the dataset so that:
-- All column names are properly formatted
-- Key fields like `Age` don’t have nulls that could cause issues
-- We kept important context in the data
+**Why we kept missing data:**
+- Missing imaging data actually means something important, that specific scan wasn't performed on that patient
+- Deleting rows would lose valuable information about which patients got which types of scans
+- This lets us see the real world usage patterns of different imaging types
 
-After cleaning, we saved the dataset as `cleaned_data.xlsx`.
+**Why we added concordance columns:**
+- The original data was basically useless for research because we couldn't tell if scans were accurate
+- Doctors need to know "when this scan says it found something, is it usually right?"
+- By comparing scan results to what surgeons actually found, we could calculate metrics like PPV and sensitivity
+
+**Why we cleaned column names:**
+- Since Python is really picky about spaces and some characters
+- Clean column names prevent errors and make the data easier to work with
+
+**Why we excluded MRI from some analyses:**
+- With only 15 total MRI scans out of 405 patients, the sample size was too small for having any reliable statistics
+- Including it would give misleading inferences because the numbers weren't big enough to be meaningful
+
+After cleaning, we saved the dataset as `Clean_imaging_data.xlsx`.
 
 
 <br><br>
-# Visualizations Reflection – Week 6
+# Reflection on Visualizations
 ## Our Visualizations
 
 ### 
@@ -90,60 +150,85 @@ After cleaning, we saved the dataset as `cleaned_data.xlsx`.
 
 
 <br><br>
-# Presentation Reflection – Week 7
+# Storytelling/Insight
 ## Our Presentation
 
-### We're Done!
+### Reflection
 
-We’ve officially wrapped up our presentation on parathyroid imaging after several weeks of research, data cleaning, analysis, and design. The goal was to explore how well different medical scans (like SPECT/CT, 4D CT, Sestamibi, Ultrasound, and MRI) help doctors detect parathyroid issues before surgery.
+Jonah and I finally finished our presentation on parathyroid imaging after weeks of research, data cleaning, analysis, and design. The goal was to see how well different medical scans (like SPECT/CT, 4D CT, Sestamibi, Ultrasound, and MRI) help doctors detect parathyroid issues before surgery.
 
 ---
 ### What We Did
 
-Our story was built around a simple but important question:
+Our storytelling was based on
 
 > “Which imaging scan gives the most accurate and useful information for parathyroid surgery?”
 
 To answer that, we:
 - Pulled real hospital imaging data spanning over 13 years
 - Cleaned and organized it for analysis
-- Evaluated each imaging type based on five key things:
+- Evaluated each imaging type based on five things:
   - **PPV** (how often the scan is right when it says there's a problem)
   - **Sensitivity** (how well it detects problems when they exist)
   - **Concordance** (how well the scan matched what surgeons found)
   - **Localization** (whether it found the problem at all)
   - **Success rate** (overall usefulness of each scan)
 
-We created clear visuals to help tell the story, showing where each scan type performed well and where it didn’t.
+We then created clear visuals to help tell the story, showing where each scan type performed well and where it didn’t.
 
 ---
 
 ### What We Learned
 
-No scan is perfect. Some scans (like Sestamibi) are super reliable when they say something’s there, but they miss a lot of cases. Others (like SPECT/CT) catch more cases but sometimes make mistakes. The best strategy? Combine scans. That gives doctors the best chance of success in surgery.
+No scan is perfect. Some scans (like Sestamibi) are super reliable when they say something’s there, but they miss a lot of cases. Others (like SPECT/CT) catch more cases but sometimes make mistakes. The best strategy is just to combine scans. That gives doctors the best chance of success in surgery.
 
 ---
 
-### Why This Matters
+### Where is this helpful?
 
-Our visual storytelling helps doctors, patients, and even data scientists understand the strengths and weaknesses of these scans. In the real world, this kind of insight can lead to better healthcare decisions and better outcomes for patients.
+This is helpful for doctors and radiologists who need to decide which scans to use before parathyroid surgery. Our analysis shows how different scans perform and helps explain which ones might be more reliable depending on the situation.
+
+---
+
+### What should other people draw conclusions about from your visualizations and cleaning?
+
+- Different scans have different strengths. There isn’t one perfect option.
+- SPECT/CT worked well most of the time, but sometimes 4D CT found things the others missed.
+- Cleaning the data helped us get clearer and more accurate results.
+- Some patients didn’t get every type of scan, so we can’t say one scan causes better results, just that we saw some patterns.
+- Using multiple scans together can give a better overall picture.
 
 ---
 
 ### Final Thoughts
 
-This project helped us practice data storytelling from start to finish finding a story in the data, building the visualizations, and wrapping it all together into a meaningful presentation. We're proud of how it turned out.
+This project helped us practice data storytelling and being able to find a story in the data, making the visualizations, and wrapping it all together into a meaningful presentation. We're proud of how it turned out.
 
 
 
 <br><br>
-# Daily Progress Logs
-## Daily Progress Log #1 – Data Preparation
+# Major Progress Logs
+
+## Major Progress Log #1 – Data Access & Setup
+
+### What We Worked On Today:
+- Got permission to access anonymized patient imaging data from a hospital system.
+- Exported scan and surgical records from the hospital’s internal database.
+- Entered data into Excel with patient ID, scan types, and surgical outcomes.
+- Saved the file as `raw_imaging_data.xlsx`.
+
+### Notes:
+- Made sure no personal identifiers were included.
+- Data covers 13 years of procedures from one hospital.
+  
+---
+
+## Major Progress Log #2 – Data Pulling
 
 ### What We worked on today:
 
 - Loaded the raw imaging dataset into a pandas DataFrame
-- Inspected the column names and fixed an issue with whitespace in the `'Age '` column
+- Looked at the column names and fixed an issue with whitespace in the `'Age '` column
 - Identified rows and found age data was missing
 - Checked for other missing values across imaging modality columns
 - Cleaned up the dataset and saved a cleaned version
@@ -152,20 +237,21 @@ This project helped us practice data storytelling from start to finish finding a
 - Will move on to making visualizations and doing analysis in a new notebook to keep this one focused on just pulling and cleaning
 ---
 
-## Daily Progress Log #2
+## Major Progress Log #3 - Data Cleaning
 
 ### What We Worked On Today:
 
-- Reviewed our cleaned imaging dataset (`Clean_imaging_data.xlsx`) and realized it only showed what each scan found, but **not** how that matched up with actual surgical results.
-- Discussed that to do analysis like PPV (Positive Predictive Value) and Sensitivity, we need to know **if** each modality (e.g. 4D CT, SPECT, Sestamibi, etc.) correctly matched the surgical findings.
-- Decided that we needed to **create new columns** that compare each modality's result to the surgical outcome, like whether it was an **exact match**, **side match**, or **incorrect**.
-- Switched focus from just using the cleaned raw data to building a **Modality Concordance** file that adds those comparisons.
+- Reviewed our cleaned imaging dataset (`Clean_imaging_data.xlsx`) and realized it only showed what each scan found, but not how that matched up with actual surgical results.
+- Talked about that to do analysis like PPV (Positive Predictive Value) and Sensitivity, we need to know if each modality (e.g. 4D CT, SPECT, Sestamibi, etc.) correctly matched the surgical findings.
+- Decided that we needed to create new columns that compare each modality's result to the surgical outcome, like whether it was an exact match, side match, or incorrect.
+- Switched focus from just using the cleaned raw data to building a Modality Concordance file that adds those comparisons.
 - Created a new file `modality_concordance.ipynb` where we generate the match columns for each modality.
 - Commented out the save command in `DataPreparation.ipynb`:
   ```python
   # df.to_excel("Data/Clean_imaging_data.xlsx", index=False)
 
 - Instead, we planned to save the final version (with modality comparisons) after building it in the modality concordance notebook.
+- Also added a success rate notebook file
 
 ### Notes:
 - We stopped saving the cleaned version right away because it didn’t include the columns that compare scan results to surgery.
@@ -173,15 +259,36 @@ This project helped us practice data storytelling from start to finish finding a
 - 
 
 ---
-## Daily Progress Log #3
+
+## Major Progress Log #4 - Visualizations
 
 ### What We Worked On Today:
 
-- We finished building our presentation for the parathyroid imaging study.
-- Focused on making sure each slide tells part of the story clearly — including key metrics like PPV, Sensitivity, and Concordance.
+- Made charts to show how well different scans (like 4D CT and SPECT/CT) matched what was found in surgery  
+- Built graphs for:
+  - **Concordance**: Showing exact match, side match, or incorrect match
+  - **Age Distribution**: Histogram showing the realtive likelihood of falling into a certian age bracket
+  - **Success Rates**: How often surgery worked depending on scan type
+  - **Localization**: How often scans found the problem area
+  - **PPV vs Sensitivity**: Compared trustworthiness vs how often a scan finds something
+  - **PPV**: Bar graph to show the highest to lowest scores of PPV
+  - **Sensitivity**: Bar graph to show the highest to lowest scores of sensitivity
+- Decided what each chart means and how to explain it in the presentation
+
+### Notes:
+- The charts helped us see the different pros and cons of each imaging modailty
+- We're using these graphs in our slides to try and tell the story as simple to people wihtout medical background
+
+---
+
+## Major Progress Log #5 - Presentation
+
+### What We Worked On Today:
+
+- We finished making our presentation for the parathyroid imaging study.
+- Focused on making sure each slide tells part of the story clearly, for metrics like PPV, Sensitivity, and Concordance.
 - Added a summary slide at the end to wrap everything up and highlight the big takeaways.
 - Made sure the visualizations were easy to follow and connected to what we found in the data.
-- Finalized the presentation layout and got it ready to submit.
 
 ### Notes:
 - We wanted the presentation to explain our findings in a way that makes sense to people who might not have a medical background.
