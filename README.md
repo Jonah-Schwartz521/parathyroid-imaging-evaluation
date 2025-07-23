@@ -138,6 +138,12 @@ After cleaning, we saved the dataset as `Clean_imaging_data.xlsx`.
 
 <br><br>
 # Reflection on Visualizations
+
+## Implications for Visualization & Future Ideas
+These visualizations helped us understand how well different scans work for parathyroid surgery. Each chart showed a different part of the story
+
+---
+
 ## Our Visualizations
 ### Bar Graph - PPV 
 ![Alt text](Visualizations/Bar_Graph_-_PPV.png)
@@ -179,6 +185,12 @@ This chart shows how often each scan was able to find the problem area at all. S
 ![Alt text](Visualizations/Stacked_Bar_Chart_-_Succecss_Rate.png)
 This chart connects the type of scan used with whether the patient had a successful surgery. It helped us see which scans might lead to better surgical outcomes.  
 
+---
+
+## Other Visualization Ideas:
+- **Line Chart Over Time:** To see if scan performance improved over the years.
+- **Pie Charts:** For a simple breakdown of how many patients got each scan.
+- **Heatmap:** To show overlap between multiple scan types per patient.
 
 
 <br><br>
