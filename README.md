@@ -139,13 +139,45 @@ After cleaning, we saved the dataset as `Clean_imaging_data.xlsx`.
 <br><br>
 # Reflection on Visualizations
 ## Our Visualizations
-
-### 
-
-
+### Bar Graph - PPV 
+![Alt text](Visualizations/Bar_Graph_-_PPV.png)
+This bar graph shows how often each scan was correct when it said there was a problem. It helps us compare how trustworthy each scan type is in giving accurate results.  
 
 ---
-### 
+
+### Bar Graph - Sensitivity 
+![Alt text](Visualizations/Bar_Graph_-_Sensitivity.png)
+This graph shows how good each scan is at actually finding a problem when one exists. Higher sensitivity means fewer missed cases, which is important for diagnosis.  
+
+---
+
+### Histogram - Age Distribution
+![Alt text](Visualizations/Histogram_-_Age_Distribution.png)
+This chart shows the spread of patient ages in our dataset. It helped us check whether the data leaned more toward younger or older patients.  
+
+---
+
+### Scatter Plot - PPV vs Sensitivity
+![Alt text](Visualizations/Scatter_Plot_-_PPV_vs_Sensitivity.png)
+This scatter plot compares accuracy (PPV) and detection (Sensitivity) for each scan. It lets us see which scans are both reliable and catch the most problems.  
+
+---
+
+### Stacked Bar Chart - Concordance
+![Alt text](Visualizations/Stacked_Bar_Chart_-_Concordance.png)
+This chart breaks down how often each scan exactly matched the surgery result, only matched the side, or was wrong. It gives a fuller picture of how helpful the scan was in planning surgery.  
+
+---
+
+### Stacked Bar Chart - Localization
+![Alt text](Visualizations/Stacked_Bar_Chart_-_Localization.png)
+This chart shows how often each scan was able to find the problem area at all. Scans with higher localization rates are more useful for helping surgeons know where to look.  
+
+---
+
+### Stacked Bar Chart - Success Rate
+![Alt text](Visualizations/Stacked_Bar_Chart_-_Succecss_Rate.png)
+This chart connects the type of scan used with whether the patient had a successful surgery. It helped us see which scans might lead to better surgical outcomes.  
 
 
 
