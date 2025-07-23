@@ -187,7 +187,7 @@ This chart connects the type of scan used with whether the patient had a success
 
 ---
 
-## Other Visualization Ideas:
+## Other Visualization Ideas
 - **Line Chart Over Time:** To see if scan performance improved over the years.
 - **Pie Charts:** For a simple breakdown of how many patients got each scan.
 - **Heatmap:** To show overlap between multiple scan types per patient.
