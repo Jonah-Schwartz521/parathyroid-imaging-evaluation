@@ -183,7 +183,7 @@ This chart shows how often each scan was able to find the problem area at all. S
 
 ### Stacked Bar Chart - Success Rate
 ![Alt text](Visualizations/Stacked_Bar_Chart_-_Succecss_Rate.png)
-This chart connects the type of scan used with whether the patient had a successful surgery. It helped us see which scans might lead to better surgical outcomes.  
+This chart shows the relationship between scan type and surgical success, defined as concordant imaging followed by a cure. It highlights which modalities may contribute to better outcomes.
 
 ---
 
